@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KONGOWE EFFORT — Countdown</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#87ceeb">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-1:#a8dcf0;
+  --sky-2:#d4eef7;
+  --sky-3:#e8f5fa;
+  --gold:#d4a017;
+  --gold-deep:#b8860b;
+  --gold-bright:#e8be55;
+  --navy:#0a2540;
+  --blue:#1a4d7a;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--navy);
+  min-height:100vh;
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(180deg,
+    var(--sky-1) 0%,
+    var(--sky-2) 50%,
+    var(--sky-3) 100%);
+  background-attachment:fixed;
+  overflow-x:hidden;
+}
+
+/* Wingu laini kwenye background */
+body::before{
+  content:'';
+  position:fixed;
+  top:-10%;
+  left:-10%;
+  width:60%;
+  height:60%;
+  background:radial-gradient(circle, rgba(255,255,255,.6) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:-1;
+}
+body::after{
+  content:'';
+  position:fixed;
+  bottom:-20%;
+  right:-15%;
+  width:70%;
+  height:70%;
+  background:radial-gradient(circle, rgba(255,255,255,.5) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:-1;
+}
+
+.wrap{
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  padding:28px 16px 50px;
+  position:relative;
+  z-index:1;
+}
+
+/* HEADER */
+.header{
+  text-align:center;
+  margin-bottom:24px;
+}
+.header .org{
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--blue);
+  font-weight:700;
+  margin-bottom:10px;
+  line-height:1.6;
+}
+.header .org .small{
+  display:block;
+  font-size:10px;
+  color:#4a6a85;
+  letter-spacing:.15em;
+  margin-top:4px;
+}
+.header .presents{
+  font-size:10px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#4a6a85;
+  font-weight:600;
+  margin:14px 0 16px;
+}
+
+/* TITLE KONGOWE EFFORT */
+.header h1{
+  font-family:'Cinzel',serif;
+  font-weight:700;
+  font-size:clamp(34px,8vw,72px);
+  letter-spacing:2px;
+  margin:0;
+  line-height:1;
+  background:linear-gradient(180deg, #e8be55 0%, #d4a017 50%, #b8860b 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 2px 0 rgba(255,255,255,.3);
+  filter:drop-shadow(0 3px 6px rgba(139,102,11,.35));
+}
+
+/* NENO AFYA FAMILIA */
+.header .subtitle{
+  font-family:'Cinzel',serif;
+  font-weight:700;
+  font-size:clamp(18px,4.5vw,36px);
+  letter-spacing:6px;
+  margin-top:8px;
+  color:var(--navy);
+  text-shadow:0 1px 2px rgba(255,255,255,.7);
+  line-height:1.1;
+}
+.header .subtitle .dot{
+  color:var(--gold-deep);
+  margin:0 4px;
+}
+
+/* THEME BOX */
+.theme-box{
+  display:inline-block;
+  background:var(--navy);
+  color:#fff;
+  padding:8px 18px;
+  border-radius:8px;
+  margin-top:20px;
+  font-family:'Sora',sans-serif;
+  font-size:clamp(11px,2vw,13px);
+  font-weight:600;
+  letter-spacing:.05em;
+}
+.theme-box b{
+  color:var(--gold-bright);
+  letter-spacing:.1em;
+}
+
+/* CONTRIBUTION */
+.contribution{
+  margin-top:16px;
+  font-family:'Sora',sans-serif;
+  font-size:clamp(12px,2.3vw,15px);
+  font-weight:700;
+  color:var(--navy);
+  letter-spacing:.05em;
+}
+.contribution b{
+  color:var(--gold-deep);
+  font-size:clamp(15px,3vw,20px);
+  margin-left:6px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(212,160,23,.35);
+  border-radius:24px;
+  padding:clamp(22px,4vw,38px);
+  box-shadow:0 20px 50px -20px rgba(10,37,64,.25),
+             inset 0 1px 0 rgba(255,255,255,.9);
+  text-align:center;
+  margin-top:26px;
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+/* COUNTDOWN LABEL */
+.countdown-label{
+  font-family:'Sora',sans-serif;
+  font-size:11px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+/* COUNTDOWN */
+.cd-wrap{
+  display:flex;
+  gap:clamp(6px,1.6vw,14px);
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.cd-unit{
+  background:linear-gradient(160deg, #1a4d7a 0%, #0a2540 100%);
+  border:2px solid var(--gold);
+  border-radius:16px;
+  padding:clamp(10px,2vw,18px) clamp(10px,2.2vw,22px);
+  min-width:clamp(66px,17vw,100px);
+  box-shadow:0 12px 30px -12px rgba(10,37,64,.55),
+             inset 0 1px 0 rgba(255,255,255,.15);
+  transition:transform .3s ease;
+  position:relative;
+}
+.cd-unit:hover{transform:translateY(-4px);}
+.cd-unit .num{
+  font-family:'Sora',sans-serif;
+  font-weight:800;
+  font-size:clamp(26px,6.5vw,48px);
+  display:block;
+  line-height:1;
+  color:var(--gold-bright);
+  font-variant-numeric:tabular-nums;
+  text-shadow:0 2px 14px rgba(232,190,85,.55);
+}
+.cd-unit .lbl{
+  display:block;
+  margin-top:8px;
+  font-size:clamp(9px,1.7vw,10.5px);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#a8dcf0;
+  font-weight:700;
+}
+
+/* TARGET LINE */
+.target-line{
+  font-family:'Sora',sans-serif;
+  color:var(--navy);
+  font-size:clamp(12px,2.1vw,14px);
+  font-weight:600;
+  margin-bottom:14px;
+}
+.target-line b{color:var(--gold-deep);}
+
+/* INFO CHIPS */
+.info-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin-top:20px;
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#fff;
+  border:1.5px solid var(--gold);
+  border-radius:999px;
+  padding:8px 16px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--navy);
+  box-shadow:0 4px 12px -4px rgba(212,160,23,.3);
+}
+.chip b{color:var(--gold-deep);margin-right:4px;}
+
+/* VERSE */
+.verse{
+  margin:24px auto 0;
+  max-width:600px;
+  padding:16px 20px;
+  background:linear-gradient(135deg, rgba(255,255,255,.9), rgba(232,245,250,.9));
+  border-left:4px solid var(--gold);
+  border-radius:10px;
+  text-align:left;
+}
+.verse p{
+  margin:0;
+  font-family:'Cinzel',serif;
+  font-style:italic;
+  font-size:clamp(13px,2.2vw,15px);
+  color:var(--navy);
+  line-height:1.7;
+}
+.verse .ref{
+  display:block;
+  margin-top:8px;
+  font-family:'Inter',sans-serif;
+  font-style:normal;
+  font-size:11px;
+  font-weight:700;
+  color:var(--gold-deep);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+/* MOTTO */
+.motto{
+  margin-top:26px;
+  font-family:'Cinzel',serif;
+  font-size:clamp(13px,2.3vw,16px);
+  color:var(--gold-deep);
+  letter-spacing:1.5px;
+  text-align:center;
+  font-weight:700;
+  text-shadow:0 1px 2px rgba(255,255,255,.8);
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  margin-top:22px;
+  color:#4a6a85;
+  font-size:11px;
+  letter-spacing:.05em;
+}
+.footer b{color:var(--navy);}
+
+/* DONE */
+.done-box{padding:40px 20px;}
+.done-box .big{
+  font-family:'Cinzel',serif;
+  font-size:clamp(22px,5vw,36px);
+  color:var(--gold-deep);
+  font-weight:700;
+  margin-bottom:10px;
+}
+.done-box p{
+  font-size:14px;
+  color:var(--navy);
+  margin:0;
+}
+
+.hidden{display:none !important;}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:none;}
+}
+
+@media (max-width:540px){
+  .header .subtitle{letter-spacing:4px;}
+  .cd-unit{padding:10px 8px;min-width:60px;}
+  .chip{font-size:11px;padding:7px 12px;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="org">
+      Seventh-day Adventist Church
+      <span class="small">TUCASA SOUTHERN EAST CONFERENCE (SEC)</span>
+    </div>
+    <div class="presents">Presents</div>
+
+    <h1>KONGOWE EFFORT</h1>
+    <div class="subtitle">
+      NENO<span class="dot">.</span> AFYA<span class="dot">.</span> FAMILIA<span class="dot">.</span>
+    </div>
+
+    <div class="theme-box">
+      <b>THEME:</b> MFALME WETU ANAKUJA TENA, TUJIANDAA KUKUTANA NAE
+    </div>
+
+    <div class="contribution">
+      CONTRIBUTION: <b>TSh 10,000</b> kwa kila mwanachama
+    </div>
+  </div>
+
+  <!-- CARD -->
+  <div class="card" id="countdownSection">
+
+    <div class="countdown-label">Countdown</div>
+    <div class="target-line" id="targetLine">Tukio linaanza <b>11 Oktoba 2026</b></div>
+
+    <div class="cd-wrap">
+      <div class="cd-unit"><span class="num" id="cd-d">0</span><span class="lbl">Siku</span></div>
+      <div class="cd-unit"><span class="num" id="cd-h">0</span><span class="lbl">Saa</span></div>
+      <div class="cd-unit"><span class="num" id="cd-m">0</span><span class="lbl">Dakika</span></div>
+      <div class="cd-unit"><span class="num" id="cd-s">0</span><span class="lbl">Sekunde</span></div>
+    </div>
+
+    <div class="info-row">
+      <span class="chip"><b>Tarehe:</b> 11 - 31 Oktoba 2026</span>
+      <span class="chip"><b>Mahali:</b> Kongowe, Pwani</span>
+    </div>
+
+    <div class="verse">
+      <p>
+        "Enendeni ulimwenguni mwote, na kuwahubiri watu wote Injili."
+        <span class="ref">Marko 16:15</span>
+      </p>
+    </div>
+
+  </div>
+
+  <div id="doneSection" class="hidden card done-box">
+    <div class="big">KONGOWE EFFORT Imeanza!</div>
+    <p>Bwana akubariki katika huduma hii takatifu.</p>
+  </div>
+
+  <div class="motto">Deep in the Word, Strong for the Mission</div>
+
+  <div class="footer">
+    <b>TUCASA SOUTHERN EAST CONFERENCE</b> · Kwa utukufu wa Mungu
+  </div>
+
+</div>
+
+<script>
+const EVENT_START = new Date("2026-10-11T00:00:00").getTime();
+const EVENT_END   = new Date("2026-10-31T23:59:59").getTime();
+
+const $ = id => document.getElementById(id);
+
+function updateCountdown(){
+  const now = Date.now();
+
+  if(now < EVENT_START){
+    const diff = EVENT_START - now;
+    const siku = Math.floor(diff / 86400000);
+    const saa  = Math.floor((diff % 86400000) / 3600000);
+    const dk   = Math.floor((diff % 3600000) / 60000);
+    const sk   = Math.floor((diff % 60000) / 1000);
+    $('cd-d').textContent = siku;
+    $('cd-h').textContent = String(saa).padStart(2, '0');
+    $('cd-m').textContent = String(dk).padStart(2, '0');
+    $('cd-s').textContent = String(sk).padStart(2, '0');
+    $('targetLine').innerHTML = 'Tukio linaanza <b>11 Oktoba 2026</b>';
+  }
+  else if(now < EVENT_END){
+    const remaining = EVENT_END - now;
+    const siku = Math.floor(remaining / 86400000);
+    const saa  = Math.floor((remaining % 86400000) / 3600000);
+    const dk   = Math.floor((remaining % 3600000) / 60000);
+    const sk   = Math.floor((remaining % 60000) / 1000);
+    $('cd-d').textContent = siku;
+    $('cd-h').textContent = String(saa).padStart(2, '0');
+    $('cd-m').textContent = String(dk).padStart(2, '0');
+    $('cd-s').textContent = String(sk).padStart(2, '0');
+    $('targetLine').innerHTML = '<b>KONGOWE EFFORT INAENDELEA</b> — Siku zilizobaki hadi kumalizika';
+  }
+  else {
+    $('countdownSection').classList.add('hidden');
+    $('doneSection').classList.remove('hidden');
+  }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+</body>
+  </html>
