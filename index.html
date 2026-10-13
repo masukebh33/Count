@@ -3,460 +3,764 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KONGOWE EFFORT — Countdown</title>
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#87ceeb">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<title>Happy Birthday Makaputura | Mr.mayunga</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --sky-1:#a8dcf0;
-  --sky-2:#d4eef7;
-  --sky-3:#e8f5fa;
-  --gold:#d4a017;
-  --gold-deep:#b8860b;
-  --gold-bright:#e8be55;
-  --navy:#0a2540;
-  --blue:#1a4d7a;
-}
-*{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
-body{
-  font-family:'Inter',sans-serif;
-  color:var(--navy);
-  min-height:100vh;
-  position:relative;
-  isolation:isolate;
-  background:linear-gradient(180deg,
-    var(--sky-1) 0%,
-    var(--sky-2) 50%,
-    var(--sky-3) 100%);
-  background-attachment:fixed;
-  overflow-x:hidden;
-}
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
 
-/* Wingu laini kwenye background */
-body::before{
-  content:'';
-  position:fixed;
-  top:-10%;
-  left:-10%;
-  width:60%;
-  height:60%;
-  background:radial-gradient(circle, rgba(255,255,255,.6) 0%, transparent 70%);
-  pointer-events:none;
-  z-index:-1;
-}
-body::after{
-  content:'';
-  position:fixed;
-  bottom:-20%;
-  right:-15%;
-  width:70%;
-  height:70%;
-  background:radial-gradient(circle, rgba(255,255,255,.5) 0%, transparent 70%);
-  pointer-events:none;
-  z-index:-1;
-}
+  body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    background: #1a0033;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.25) 0%, transparent 45%),
+      radial-gradient(circle at 80% 30%, rgba(147, 51, 234, 0.35) 0%, transparent 50%),
+      radial-gradient(circle at 50% 90%, rgba(236, 72, 153, 0.30) 0%, transparent 55%),
+      linear-gradient(135deg, #1a0033 0%, #2d1b69 40%, #4a1e7a 70%, #6b1f5c 100%);
+    background-attachment: fixed;
+  }
 
-.wrap{
-  width:100%;
-  max-width:900px;
-  margin:0 auto;
-  padding:28px 16px 50px;
-  position:relative;
-  z-index:1;
-}
+  /* Golden sparkle overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(2px 2px at 20% 30%, rgba(255,215,0,0.8), transparent),
+      radial-gradient(2px 2px at 60% 70%, rgba(255,215,0,0.6), transparent),
+      radial-gradient(1px 1px at 80% 20%, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 40% 80%, rgba(255,215,0,0.5), transparent),
+      radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 10% 90%, rgba(255,215,0,0.6), transparent);
+    pointer-events: none;
+    z-index: 0;
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
 
-/* HEADER */
-.header{
-  text-align:center;
-  margin-bottom:24px;
-}
-.header .org{
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--blue);
-  font-weight:700;
-  margin-bottom:10px;
-  line-height:1.6;
-}
-.header .org .small{
-  display:block;
-  font-size:10px;
-  color:#4a6a85;
-  letter-spacing:.15em;
-  margin-top:4px;
-}
-.header .presents{
-  font-size:10px;
-  letter-spacing:.3em;
-  text-transform:uppercase;
-  color:#4a6a85;
-  font-weight:600;
-  margin:14px 0 16px;
-}
+  @keyframes twinkle {
+    0%   { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
 
-/* TITLE KONGOWE EFFORT */
-.header h1{
-  font-family:'Cinzel',serif;
-  font-weight:700;
-  font-size:clamp(34px,8vw,72px);
-  letter-spacing:2px;
-  margin:0;
-  line-height:1;
-  background:linear-gradient(180deg, #e8be55 0%, #d4a017 50%, #b8860b 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow:0 2px 0 rgba(255,255,255,.3);
-  filter:drop-shadow(0 3px 6px rgba(139,102,11,.35));
-}
+  .hidden { display: none !important; }
 
-/* NENO AFYA FAMILIA */
-.header .subtitle{
-  font-family:'Cinzel',serif;
-  font-weight:700;
-  font-size:clamp(18px,4.5vw,36px);
-  letter-spacing:6px;
-  margin-top:8px;
-  color:var(--navy);
-  text-shadow:0 1px 2px rgba(255,255,255,.7);
-  line-height:1.1;
-}
-.header .subtitle .dot{
-  color:var(--gold-deep);
-  margin:0 4px;
-}
+  /* ================= LOGIN ================= */
+  #loginScreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .login-card {
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.15), rgba(147, 51, 234, 0.20));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px 32px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 215, 0, 0.4);
+    border: 1.5px solid rgba(255, 215, 0, 0.4);
+    position: relative;
+  }
+  .login-card::before {
+    content: '👑';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    filter: drop-shadow(0 0 15px rgba(255,215,0,0.8));
+  }
+  .login-card h2 {
+    margin: 10px 0 25px;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.4rem;
+    background: linear-gradient(90deg, #ffd700, #ffb347, #ffd700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 400;
+  }
+  .login-card input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 15px;
+    border: 1.5px solid rgba(255, 215, 0, 0.35);
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    outline: none;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+  }
+  .login-card input::placeholder { color: rgba(255,255,255,0.55); }
+  .login-card input:focus {
+    border-color: #ffd700;
+    background: rgba(255, 215, 0, 0.12);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  .login-card button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffd700 0%, #ff9500 50%, #ffd700 100%);
+    background-size: 200% 100%;
+    color: #2d1b69;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(255, 149, 0, 0.4);
+  }
+  .login-card button:hover {
+    background-position: 100% 0;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
+  }
+  .error { color: #ff6b9d; font-size: 0.9rem; text-align: center; margin-top: 12px; min-height: 20px; font-weight: 600; }
+  .hint { font-size: 0.78rem; text-align: center; color: rgba(255, 215, 0, 0.7); margin-top: 18px; letter-spacing: 0.5px; }
 
-/* THEME BOX */
-.theme-box{
-  display:inline-block;
-  background:var(--navy);
-  color:#fff;
-  padding:8px 18px;
-  border-radius:8px;
-  margin-top:20px;
-  font-family:'Sora',sans-serif;
-  font-size:clamp(11px,2vw,13px);
-  font-weight:600;
-  letter-spacing:.05em;
-}
-.theme-box b{
-  color:var(--gold-bright);
-  letter-spacing:.1em;
-}
+  /* ================= BIRTHDAY PAGE ================= */
+  #birthdayPage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 2;
+  }
 
-/* CONTRIBUTION */
-.contribution{
-  margin-top:16px;
-  font-family:'Sora',sans-serif;
-  font-size:clamp(12px,2.3vw,15px);
-  font-weight:700;
-  color:var(--navy);
-  letter-spacing:.05em;
-}
-.contribution b{
-  color:var(--gold-deep);
-  font-size:clamp(15px,3vw,20px);
-  margin-left:6px;
-}
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.2rem;
+    margin: 15px 0;
+    background: linear-gradient(135deg, #ffd700 0%, #fff5b8 25%, #ffd700 50%, #ff9500 75%, #ffd700 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+    animation: shimmer 4s ease-in-out infinite, bounce 2s infinite;
+    font-weight: 400;
+    line-height: 1.1;
+  }
 
-/* CARD */
-.card{
-  background:rgba(255,255,255,.75);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(212,160,23,.35);
-  border-radius:24px;
-  padding:clamp(22px,4vw,38px);
-  box-shadow:0 20px 50px -20px rgba(10,37,64,.25),
-             inset 0 1px 0 rgba(255,255,255,.9);
-  text-align:center;
-  margin-top:26px;
-  position:relative;
-  overflow:hidden;
-}
-.card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:4px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-}
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
 
-/* COUNTDOWN LABEL */
-.countdown-label{
-  font-family:'Sora',sans-serif;
-  font-size:11px;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  color:var(--gold-deep);
-  font-weight:700;
-  margin-bottom:16px;
-}
+  .message {
+    max-width: 620px;
+    background: linear-gradient(145deg, rgba(147, 51, 234, 0.25), rgba(236, 72, 153, 0.20));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 25px 30px;
+    border-radius: 22px;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    border: 1.5px solid rgba(255, 215, 0, 0.35);
+    box-shadow:
+      0 15px 50px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 215, 0, 0.3);
+    line-height: 1.7;
+  }
 
-/* COUNTDOWN */
-.cd-wrap{
-  display:flex;
-  gap:clamp(6px,1.6vw,14px);
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-bottom:16px;
-}
-.cd-unit{
-  background:linear-gradient(160deg, #1a4d7a 0%, #0a2540 100%);
-  border:2px solid var(--gold);
-  border-radius:16px;
-  padding:clamp(10px,2vw,18px) clamp(10px,2.2vw,22px);
-  min-width:clamp(66px,17vw,100px);
-  box-shadow:0 12px 30px -12px rgba(10,37,64,.55),
-             inset 0 1px 0 rgba(255,255,255,.15);
-  transition:transform .3s ease;
-  position:relative;
-}
-.cd-unit:hover{transform:translateY(-4px);}
-.cd-unit .num{
-  font-family:'Sora',sans-serif;
-  font-weight:800;
-  font-size:clamp(26px,6.5vw,48px);
-  display:block;
-  line-height:1;
-  color:var(--gold-bright);
-  font-variant-numeric:tabular-nums;
-  text-shadow:0 2px 14px rgba(232,190,85,.55);
-}
-.cd-unit .lbl{
-  display:block;
-  margin-top:8px;
-  font-size:clamp(9px,1.7vw,10.5px);
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:#a8dcf0;
-  font-weight:700;
-}
+  .btn {
+    padding: 14px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ffd700 0%, #ff9500 100%);
+    color: #2d1b69;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 149, 0, 0.45);
+    transition: all 0.3s;
+    margin: 6px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(255, 215, 0, 0.65);
+  }
+  .btn-outline {
+    background: transparent;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+  }
+  .btn-outline:hover {
+    background: rgba(255, 215, 0, 0.15);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.55);
+  }
 
-/* TARGET LINE */
-.target-line{
-  font-family:'Sora',sans-serif;
-  color:var(--navy);
-  font-size:clamp(12px,2.1vw,14px);
-  font-weight:600;
-  margin-bottom:14px;
-}
-.target-line b{color:var(--gold-deep);}
+  /* Slideshow */
+  .slideshow {
+    position: relative;
+    width: 92%;
+    max-width: 480px;
+    height: 340px;
+    margin: 20px auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(255, 215, 0, 0.25);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    background: rgba(0,0,0,0.3);
+    display: none;
+    padding: 4px;
+  }
+  .slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    border-radius: 20px;
+  }
+  .slideshow img.active { opacity: 1; }
+  .slideshow-empty {
+    padding: 40px;
+    font-size: 0.95rem;
+    color: rgba(255, 215, 0, 0.8);
+    font-style: italic;
+  }
 
-/* INFO CHIPS */
-.info-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  justify-content:center;
-  margin-top:20px;
-}
-.chip{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  background:#fff;
-  border:1.5px solid var(--gold);
-  border-radius:999px;
-  padding:8px 16px;
-  font-size:12px;
-  font-weight:700;
-  color:var(--navy);
-  box-shadow:0 4px 12px -4px rgba(212,160,23,.3);
-}
-.chip b{color:var(--gold-deep);margin-right:4px;}
+  /* Watermark */
+  .watermark {
+    position: fixed;
+    bottom: 14px;
+    right: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Great Vibes', cursive;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ffd700, #ffb347);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: 9999;
+    pointer-events: none;
+    user-select: none;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
 
-/* VERSE */
-.verse{
-  margin:24px auto 0;
-  max-width:600px;
-  padding:16px 20px;
-  background:linear-gradient(135deg, rgba(255,255,255,.9), rgba(232,245,250,.9));
-  border-left:4px solid var(--gold);
-  border-radius:10px;
-  text-align:left;
-}
-.verse p{
-  margin:0;
-  font-family:'Cinzel',serif;
-  font-style:italic;
-  font-size:clamp(13px,2.2vw,15px);
-  color:var(--navy);
-  line-height:1.7;
-}
-.verse .ref{
-  display:block;
-  margin-top:8px;
-  font-family:'Inter',sans-serif;
-  font-style:normal;
-  font-size:11px;
-  font-weight:700;
-  color:var(--gold-deep);
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
+  /* ================= ADMIN PANEL ================= */
+  #adminPanel {
+    min-height: 100vh;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .admin-container {
+    max-width: 950px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, rgba(147, 51, 234, 0.22), rgba(30, 27, 105, 0.30));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 35px;
+    border-radius: 24px;
+    border: 1.5px solid rgba(255, 215, 0, 0.4);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 215, 0, 0.3);
+  }
+  .admin-container h2 {
+    margin-top: 0;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.6rem;
+    background: linear-gradient(90deg, #ffd700, #ff9500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 400;
+    text-align: center;
+  }
+  .admin-container p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .upload-area {
+    border: 2.5px dashed rgba(255, 215, 0, 0.55);
+    border-radius: 18px;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 25px 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: rgba(255, 215, 0, 0.05);
+  }
+  .upload-area:hover {
+    background: rgba(255, 215, 0, 0.12);
+    border-color: #ffd700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.35);
+    transform: translateY(-2px);
+  }
+  .upload-area input { display: none; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 14px;
+    margin-top: 25px;
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.4),
+      0 0 0 1.5px rgba(255, 215, 0, 0.35);
+    transition: transform 0.3s;
+  }
+  .gallery-item:hover { transform: scale(1.03); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery-item .del {
+    position: absolute;
+    top: 8px; right: 8px;
+    background: linear-gradient(135deg, #ff3366, #c2185b);
+    color: #fff;
+    border: none;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: transform 0.2s;
+  }
+  .gallery-item .del:hover { transform: scale(1.15); }
+  .admin-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    justify-content: center;
+  }
+  .status {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    min-height: 22px;
+    color: #ffd700;
+    font-weight: 600;
+  }
 
-/* MOTTO */
-.motto{
-  margin-top:26px;
-  font-family:'Cinzel',serif;
-  font-size:clamp(13px,2.3vw,16px);
-  color:var(--gold-deep);
-  letter-spacing:1.5px;
-  text-align:center;
-  font-weight:700;
-  text-shadow:0 1px 2px rgba(255,255,255,.8);
-}
+  /* Balloons with golden glow */
+  .balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 55px;
+    height: 70px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: float 8s infinite ease-in;
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: 0 0 25px currentColor;
+  }
+  .balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 2px;
+    height: 45px;
+    background: linear-gradient(to bottom, rgba(255,215,0,0.8), transparent);
+    transform: translateX(-50%);
+  }
 
-/* FOOTER */
-.footer{
-  text-align:center;
-  margin-top:22px;
-  color:#4a6a85;
-  font-size:11px;
-  letter-spacing:.05em;
-}
-.footer b{color:var(--navy);}
+  @keyframes float {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
 
-/* DONE */
-.done-box{padding:40px 20px;}
-.done-box .big{
-  font-family:'Cinzel',serif;
-  font-size:clamp(22px,5vw,36px);
-  color:var(--gold-deep);
-  font-weight:700;
-  margin-bottom:10px;
-}
-.done-box p{
-  font-size:14px;
-  color:var(--navy);
-  margin:0;
-}
-
-.hidden{display:none !important;}
-
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(10px);}
-  to{opacity:1;transform:none;}
-}
-
-@media (max-width:540px){
-  .header .subtitle{letter-spacing:4px;}
-  .cd-unit{padding:10px 8px;min-width:60px;}
-  .chip{font-size:11px;padding:7px 12px;}
-}
+  @media (max-width: 600px) {
+    h1 { font-size: 2.6rem; }
+    .login-card h2 { font-size: 2rem; }
+    .message { font-size: 1rem; padding: 20px; }
+    .watermark { font-size: 0.85rem; }
+    .slideshow { height: 260px; }
+    .admin-container { padding: 22px; }
+    .admin-container h2 { font-size: 2rem; }
+  }
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<!-- Watermark -->
+<div class="watermark">Mr.mayunga</div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="org">
-      Seventh-day Adventist Church
-      <span class="small">TUCASA SOUTHERN EAST CONFERENCE (SEC)</span>
-    </div>
-    <div class="presents">Presents</div>
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="loginScreen">
+  <div class="login-card">
+    <h2>Admin Login</h2>
+    <input type="text" id="username" placeholder="Username" autocomplete="off">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">INGIA</button>
+    <div class="error" id="loginError"></div>
+    <div class="hint">Default: mr.mayunga / makaputura2024</div>
+  </div>
+</div>
 
-    <h1>KONGOWE EFFORT</h1>
-    <div class="subtitle">
-      NENO<span class="dot">.</span> AFYA<span class="dot">.</span> FAMILIA<span class="dot">.</span>
-    </div>
+<!-- ============ BIRTHDAY PAGE ============ -->
+<div id="birthdayPage" class="hidden">
+  <h1>Happy Birthday, Makaputura!</h1>
 
-    <div class="theme-box">
-      <b>THEME:</b> MFALME WETU ANAKUJA TENA, TUJIANDAA KUKUTANA NAE
-    </div>
-
-    <div class="contribution">
-      CONTRIBUTION: <b>TSh 10,000</b> kwa kila mwanachama
+  <div class="slideshow" id="slideshow">
+    <div class="slideshow-empty" id="slideshowEmpty">
+      Bado hakuna picha. Ingia kama admin ku-upload.
     </div>
   </div>
 
-  <!-- CARD -->
-  <div class="card" id="countdownSection">
-
-    <div class="countdown-label">Countdown</div>
-    <div class="target-line" id="targetLine">Tukio linaanza <b>11 Oktoba 2026</b></div>
-
-    <div class="cd-wrap">
-      <div class="cd-unit"><span class="num" id="cd-d">0</span><span class="lbl">Siku</span></div>
-      <div class="cd-unit"><span class="num" id="cd-h">0</span><span class="lbl">Saa</span></div>
-      <div class="cd-unit"><span class="num" id="cd-m">0</span><span class="lbl">Dakika</span></div>
-      <div class="cd-unit"><span class="num" id="cd-s">0</span><span class="lbl">Sekunde</span></div>
-    </div>
-
-    <div class="info-row">
-      <span class="chip"><b>Tarehe:</b> 11 - 31 Oktoba 2026</span>
-      <span class="chip"><b>Mahali:</b> Kongowe, Pwani</span>
-    </div>
-
-    <div class="verse">
-      <p>
-        "Enendeni ulimwenguni mwote, na kuwahubiri watu wote Injili."
-        <span class="ref">Marko 16:15</span>
-      </p>
-    </div>
-
+  <div class="message">
+    <p>Leo ni siku yako! Nakutakia furaha, afya, na mafanikio makubwa. Asante kwa kuwa rafiki mzuri.</p>
+    <p id="secret" style="display:none;">💖 Makaputura, wewe ni wa pekee! Karibu tufanye sherehe! 🎈</p>
   </div>
 
-  <div id="doneSection" class="hidden card done-box">
-    <div class="big">KONGOWE EFFORT Imeanza!</div>
-    <p>Bwana akubariki katika huduma hii takatifu.</p>
+  <div>
+    <button class="btn" onclick="showSecret()">✨ Ujumbe wa Siri ✨</button>
+    <button class="btn btn-outline" onclick="goToAdmin()">⚙️ Admin</button>
   </div>
+</div>
 
-  <div class="motto">Deep in the Word, Strong for the Mission</div>
+<!-- ============ ADMIN PANEL ============ -->
+<div id="adminPanel" class="hidden">
+  <div class="admin-container">
+    <h2>Upload Picha</h2>
+    <p>Chagua picha (unaweza kuchagua nyingi kwa mkupuo mmoja).</p>
 
-  <div class="footer">
-    <b>TUCASA SOUTHERN EAST CONFERENCE</b> · Kwa utukufu wa Mungu
+    <label class="upload-area" for="fileInput">
+      <div style="font-size:3rem; filter: drop-shadow(0 0 15px rgba(255,215,0,0.7));">📷</div>
+      <div style="margin-top:10px; font-weight:600;"><strong>Bofya hapa kuchagua picha</strong></div>
+      <div style="font-size:0.85rem;opacity:0.75;margin-top:6px;">au buruta picha hapa</div>
+      <input type="file" id="fileInput" accept="image/*" multiple>
+    </label>
+
+    <div class="status" id="status"></div>
+
+    <div class="gallery-grid" id="galleryGrid"></div>
+
+    <div class="admin-actions">
+      <button class="btn" onclick="viewBirthday()">🎉 Angalia Ukurasa</button>
+      <button class="btn btn-outline" onclick="logout()">Toka</button>
+    </div>
   </div>
-
 </div>
 
 <script>
-const EVENT_START = new Date("2026-10-11T00:00:00").getTime();
-const EVENT_END   = new Date("2026-10-31T23:59:59").getTime();
+/* ==================================================
+   CONFIG
+================================================== */
+const ADMIN_USER = "mr.mayunga";
+const ADMIN_PASS = "makaputura2024";
 
-const $ = id => document.getElementById(id);
+/* ==================================================
+   INDEXEDDB
+================================================== */
+const DB_NAME = "BirthdayDB";
+const STORE   = "photos";
+let db;
 
-function updateCountdown(){
-  const now = Date.now();
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, 1);
+    req.onupgradeneeded = e => {
+      const database = e.target.result;
+      if (!database.objectStoreNames.contains(STORE)) {
+        database.createObjectStore(STORE, { keyPath: "id", autoIncrement: true });
+      }
+    };
+    req.onsuccess = e => { db = e.target.result; resolve(db); };
+    req.onerror  = e => reject(e.target.error);
+  });
+}
 
-  if(now < EVENT_START){
-    const diff = EVENT_START - now;
-    const siku = Math.floor(diff / 86400000);
-    const saa  = Math.floor((diff % 86400000) / 3600000);
-    const dk   = Math.floor((diff % 3600000) / 60000);
-    const sk   = Math.floor((diff % 60000) / 1000);
-    $('cd-d').textContent = siku;
-    $('cd-h').textContent = String(saa).padStart(2, '0');
-    $('cd-m').textContent = String(dk).padStart(2, '0');
-    $('cd-s').textContent = String(sk).padStart(2, '0');
-    $('targetLine').innerHTML = 'Tukio linaanza <b>11 Oktoba 2026</b>';
-  }
-  else if(now < EVENT_END){
-    const remaining = EVENT_END - now;
-    const siku = Math.floor(remaining / 86400000);
-    const saa  = Math.floor((remaining % 86400000) / 3600000);
-    const dk   = Math.floor((remaining % 3600000) / 60000);
-    const sk   = Math.floor((remaining % 60000) / 1000);
-    $('cd-d').textContent = siku;
-    $('cd-h').textContent = String(saa).padStart(2, '0');
-    $('cd-m').textContent = String(dk).padStart(2, '0');
-    $('cd-s').textContent = String(sk).padStart(2, '0');
-    $('targetLine').innerHTML = '<b>KONGOWE EFFORT INAENDELEA</b> — Siku zilizobaki hadi kumalizika';
-  }
-  else {
-    $('countdownSection').classList.add('hidden');
-    $('doneSection').classList.remove('hidden');
+function addPhoto(blob) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readwrite");
+    const req = tx.objectStore(STORE).add({ blob, date: Date.now() });
+    req.onsuccess = () => resolve(req.result);
+    req.onerror  = e => reject(e.target.error);
+  });
+}
+
+function getAllPhotos() {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readonly");
+    const req = tx.objectStore(STORE).getAll();
+    req.onsuccess = () => resolve(req.result);
+    req.onerror  = e => reject(e.target.error);
+  });
+}
+
+function deletePhoto(id) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, "readwrite");
+    const req = tx.objectStore(STORE).delete(id);
+    req.onsuccess = () => resolve();
+    req.onerror  = e => reject(e.target.error);
+  });
+}
+
+/* ==================================================
+   LOGIN
+================================================== */
+function login() {
+  const u = document.getElementById("username").value.trim();
+  const p = document.getElementById("password").value;
+  const err = document.getElementById("loginError");
+
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    sessionStorage.setItem("isAdmin", "yes");
+    err.textContent = "";
+    showAdmin();
+  } else {
+    err.textContent = "❌ Username au password si sahihi!";
   }
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter" && !document.getElementById("loginScreen").classList.contains("hidden")) {
+    login();
+  }
+});
+
+function logout() {
+  sessionStorage.removeItem("isAdmin");
+  showLogin();
+}
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+function hideAll() {
+  document.getElementById("loginScreen").classList.add("hidden");
+  document.getElementById("birthdayPage").classList.add("hidden");
+  document.getElementById("adminPanel").classList.add("hidden");
+}
+
+function showLogin() {
+  hideAll();
+  document.getElementById("loginScreen").classList.remove("hidden");
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+}
+
+function showBirthday() {
+  hideAll();
+  document.getElementById("birthdayPage").classList.remove("hidden");
+  loadSlideshow();
+  startBalloons();
+}
+
+function showAdmin() {
+  hideAll();
+  document.getElementById("adminPanel").classList.remove("hidden");
+  loadAdminGallery();
+}
+
+function goToAdmin() {
+  if (sessionStorage.getItem("isAdmin") === "yes") showAdmin();
+  else showLogin();
+}
+
+function viewBirthday() { showBirthday(); }
+
+/* ==================================================
+   UPLOAD
+================================================== */
+document.getElementById("fileInput").addEventListener("change", async (e) => {
+  const files = Array.from(e.target.files);
+  if (!files.length) return;
+
+  const status = document.getElementById("status");
+  status.textContent = "⏳ Inapakia picha " + files.length + "...";
+
+  let count = 0;
+  for (const file of files) {
+    if (!file.type.startsWith("image/")) continue;
+    await addPhoto(file);
+    count++;
+  }
+
+  status.textContent = "✅ Picha " + count + " zimehifadhiwa!";
+  e.target.value = "";
+  loadAdminGallery();
+  setTimeout(() => status.textContent = "", 3000);
+});
+
+/* Drag & drop */
+const uploadArea = document.querySelector(".upload-area");
+["dragover","dragenter"].forEach(ev =>
+  uploadArea.addEventListener(ev, e => { e.preventDefault(); uploadArea.style.background = "rgba(255,215,0,0.18)"; })
+);
+["dragleave","drop"].forEach(ev =>
+  uploadArea.addEventListener(ev, e => { e.preventDefault(); uploadArea.style.background = ""; })
+);
+uploadArea.addEventListener("drop", async (e) => {
+  const files = Array.from(e.dataTransfer.files);
+  for (const file of files) {
+    if (file.type.startsWith("image/")) await addPhoto(file);
+  }
+  loadAdminGallery();
+});
+
+/* ==================================================
+   ADMIN GALLERY
+================================================== */
+async function loadAdminGallery() {
+  const grid = document.getElementById("galleryGrid");
+  grid.innerHTML = "";
+  const photos = await getAllPhotos();
+
+  if (!photos.length) {
+    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;opacity:0.7;">Hakuna picha bado.</p>';
+    return;
+  }
+
+  photos.forEach(p => {
+    const url = URL.createObjectURL(p.blob);
+    const div = document.createElement("div");
+    div.className = "gallery-item";
+    div.innerHTML = `
+      <img src="${url}" alt="picha">
+      <button class="del" title="Ondoa">×</button>
+    `;
+    div.querySelector(".del").onclick = async () => {
+      if (confirm("Una uhakika unataka kuondoa picha hii?")) {
+        await deletePhoto(p.id);
+        loadAdminGallery();
+      }
+    };
+    grid.appendChild(div);
+  });
+}
+
+/* ==================================================
+   SLIDESHOW
+================================================== */
+let slideTimer = null;
+let slideIndex = 0;
+
+async function loadSlideshow() {
+  const slideshow = document.getElementById("slideshow");
+  const empty = document.getElementById("slideshowEmpty");
+
+  slideshow.querySelectorAll("img").forEach(i => i.remove());
+  const photos = await getAllPhotos();
+
+  if (!photos.length) {
+    empty.style.display = "block";
+    slideshow.style.display = "none";
+    return;
+  }
+
+  empty.style.display = "none";
+  slideshow.style.display = "block";
+
+  photos.forEach((p, i) => {
+    const img = document.createElement("img");
+    img.src = URL.createObjectURL(p.blob);
+    if (i === 0) img.classList.add("active");
+    slideshow.appendChild(img);
+  });
+
+  const imgs = slideshow.querySelectorAll("img");
+  slideIndex = 0;
+  clearInterval(slideTimer);
+  if (imgs.length > 1) {
+    slideTimer = setInterval(() => {
+      imgs[slideIndex].classList.remove("active");
+      slideIndex = (slideIndex + 1) % imgs.length;
+      imgs[slideIndex].classList.add("active");
+    }, 3000);
+  }
+}
+
+/* ==================================================
+   SECRET + CONFETTI
+================================================== */
+function showSecret() {
+  document.getElementById("secret").style.display = "block";
+  for (let i = 0; i < 130; i++) {
+    const conf = document.createElement("div");
+    conf.textContent = ["🎉","🎈","🎂","💖","✨","👑","🌟"][Math.floor(Math.random()*7)];
+    conf.style.position = "fixed";
+    conf.style.left = Math.random() * 100 + "vw";
+    conf.style.top = "-20px";
+    conf.style.fontSize = (Math.random() * 22 + 12) + "px";
+    conf.style.transition = "transform 3s linear, opacity 3s";
+    conf.style.zIndex = "9998";
+    conf.style.pointerEvents = "none";
+    document.body.appendChild(conf);
+    setTimeout(() => {
+      conf.style.transform = `translateY(100vh) rotate(${Math.random()*360}deg)`;
+      conf.style.opacity = 0;
+    }, 10);
+    setTimeout(() => conf.remove(), 3000);
+  }
+}
+
+/* ==================================================
+   BALLOONS
+================================================== */
+let balloonsStarted = false;
+function startBalloons() {
+  if (balloonsStarted) return;
+  balloonsStarted = true;
+  const colors = ["#ffd700","#ff9500","#ec4899","#9333ea","#3b82f6","#f43f5e"];
+  for (let i = 0; i < 14; i++) {
+    const b = document.createElement("div");
+    b.className = "balloon";
+    const c = colors[i % colors.length];
+    b.style.left = Math.random() * 100 + "vw";
+    b.style.background = `linear-gradient(135deg, ${c}, ${c}dd)`;
+    b.style.color = c;
+    b.style.animationDelay = Math.random() * 8 + "s";
+    b.style.animationDuration = (6 + Math.random()*4) + "s";
+    document.body.appendChild(b);
+  }
+}
+
+/* ==================================================
+   INIT
+================================================== */
+(async () => {
+  await openDB();
+  if (sessionStorage.getItem("isAdmin") === "yes") showAdmin();
+  else showBirthday();
+})();
 </script>
 </body>
-  </html>
+      </html>
